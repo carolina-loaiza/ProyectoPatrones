@@ -1,4 +1,4 @@
-package com.graphics;
+package com.graphics.Board;
 
 public class Cell {
     public int posX;

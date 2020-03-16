@@ -1,4 +1,6 @@
-package com.graphics;
+package com.graphics.Board;
+
+import com.graphics.user.User;
 
 import java.awt.*;
 import javax.imageio.ImageIO;
@@ -13,17 +15,23 @@ import java.io.IOException;
 import java.lang.Math;
 
 public class Board extends JFrame implements ActionListener {
-    private int width;  //with of the main frame
-    private int height; //height of the main frame
+    private int width;      //with of the main frame
+    private int height;     //height of the main frame
     private Cell[] grid;    //Grid that represents the values of the actual grid on the frame
-    private BufferedImage imgIcon = null;   //Image of a user icon
+    private boolean isInitGrid;
+    private User user1;
+    private Dice movementDice;
 
     public Board(int width, int height) {
         super();
 
+        this.isInitGrid = true;
         this.width = width;
         this.height = height;
         this.grid = new Cell[100];
+        this.user1 = new User("Player 1","icon.png");
+        this.user1.setPosOnBoard(1);
+        this.movementDice = new Dice();
 
         setSize(width, height);
         setVisible(true);
@@ -36,13 +44,21 @@ public class Board extends JFrame implements ActionListener {
         });
 
         //Add button foe to move icon on the cells
-        JButton btnMoveUser = new JButton("Move user ");
+        JButton btnMoveUser = new JButton("Throw dice");
         btnMoveUser.setBounds(0,0, 100, 30);
         btnMoveUser.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                grid[0].posX = grid[1].posX + 10;
+            public void actionPerformed(ActionEvent e) {
+                int diceValue = movementDice.getNewValue();
+                int newPosition = user1.getPosOnBoard() + diceValue;
+                System.out.println("Dado: " +  diceValue);
 
-                repaint();
+                if (newPosition <= 100) {
+                    user1.setPosOnBoard(newPosition);
+                    user1.setPosX(grid[newPosition - 1].posX);
+                    user1.setPosY(grid[newPosition - 1].posY);
+
+                    repaint();
+                }
             }
         });
 
@@ -67,7 +83,6 @@ public class Board extends JFrame implements ActionListener {
         try {
             imgDevil = ImageIO.read(new File("devil.png"));
             imgAngel = ImageIO.read(new File("angel.png"));
-            this.imgIcon = ImageIO.read(new File("icon.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -113,7 +128,19 @@ public class Board extends JFrame implements ActionListener {
             cordY = cordY + boxHeight + spacingBetweenBox;
         }
 
-        g.drawImage(imgIcon, this.grid[0].posX, this.grid[0].posY, boxWidth - paddingBox - 10, boxHeight - paddingBox - 10, null);
+        if (this.isInitGrid) {
+            this.user1.setPosX(this.grid[0].posX);
+            this.user1.setPosY(this.grid[0].posY);
+
+            this.isInitGrid = false;
+        }
+
+        g.drawImage(this.user1.getImage(),
+                    this.user1.getPosX(),
+                    this.user1.getPosY(),
+                    boxWidth - paddingBox - 10,
+                    boxHeight - paddingBox - 10,
+                    null);
     }
 
     @Override

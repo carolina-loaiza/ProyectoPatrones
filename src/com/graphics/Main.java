@@ -1,7 +1,8 @@
 package com.graphics;
 
+import com.graphics.Board.Board;
+
 import javax.swing.*;
-import java.awt.*;
 
 public class Main {
     public static void main(String[] args) throws ClassNotFoundException, UnsupportedLookAndFeelException, InstantiationException, IllegalAccessException {

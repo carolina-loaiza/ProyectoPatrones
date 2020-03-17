@@ -4,6 +4,7 @@ public class Dice {
     private int max;
     private int min;
     private int range;
+    private int value;
 
     public Dice() {
         this.max = 6;
@@ -12,6 +13,11 @@ public class Dice {
     }
 
     public int getNewValue() {
-        return (int) (Math.random() * this.range) + this.min;
+        this.value = (int) (Math.random() * this.range) + this.min;
+        return value;
+    }
+
+    public int getValue() {
+        return value;
     }
 }

@@ -13,56 +13,99 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.lang.Math;
+import javax.swing.Timer;
 
-public class Board extends JFrame implements ActionListener {
+public class Board extends JFrame {
     private int width;      //with of the main frame
     private int height;     //height of the main frame
     private Cell[] grid;    //Grid that represents the values of the actual grid on the frame
-    private boolean isInitGrid;
+    private boolean isInitGrid;     //Flag that indicates if is the first time the frame is painted
     private User user1;
     private Dice movementDice;
+    private BufferedImage imgDevil;
+    private BufferedImage imgAngel;
+    private Timer diceTimer;
+    private int diceTimes;
+    private JButton btnMoveUser;
 
     public Board(int width, int height) {
         super();
 
+        this.setLayout(null);
         this.isInitGrid = true;
-        this.width = width;
+        this.width = width - 400;
         this.height = height;
         this.grid = new Cell[100];
         this.user1 = new User("Player 1","icon.png");
         this.user1.setPosOnBoard(1);
         this.movementDice = new Dice();
-
-        setSize(width, height);
-        setVisible(true);
-
-        //Capture form resize event
-        this.addComponentListener(new ComponentAdapter() {
-            public void componentResized(ComponentEvent e) {
-            //e.getComponent().getSize().height
-            }
-        });
-
-        //Add button foe to move icon on the cells
-        JButton btnMoveUser = new JButton("Throw dice");
-        btnMoveUser.setBounds(0,0, 100, 30);
-        btnMoveUser.addActionListener(new ActionListener() {
+        this.diceTimer = new Timer(30, new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent e) {
-                int diceValue = movementDice.getNewValue();
-                int newPosition = user1.getPosOnBoard() + diceValue;
-                System.out.println("Dado: " +  diceValue);
+                diceTimes--;
 
-                if (newPosition <= 100) {
-                    user1.setPosOnBoard(newPosition);
-                    user1.setPosX(grid[newPosition - 1].posX);
-                    user1.setPosY(grid[newPosition - 1].posY);
+                btnMoveUser.setText(String.valueOf(movementDice.getNewValue()));
+                btnMoveUser.repaint();
 
-                    repaint();
+                if (diceTimes == 0) {
+                    diceTimer.stop();
+                    btnMoveUser.setText(String.valueOf(movementDice.getValue()));
+                    moveUser();
                 }
             }
         });
 
-        this.add(btnMoveUser);
+        setSize(width, height);
+        setVisible(true);
+
+        try {
+            this.imgDevil = ImageIO.read(new File("devil.png"));
+            this.imgAngel = ImageIO.read(new File("angel.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //Capture frame resize event
+        /*this.addComponentListener(new ComponentAdapter() {
+            public void componentResized(ComponentEvent e) {
+            //e.getComponent().getSize().height
+            }
+        });*/
+
+        //Add button foe to move icon on the cells
+        this.btnMoveUser = new JButton("Throw Dice");
+        this.btnMoveUser.setBounds(600,10, 100, 50);
+        this.btnMoveUser.setMaximumSize(new Dimension(100, 50));
+        this.btnMoveUser.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                diceTimes = 50;
+                diceTimer.start();
+            }
+        });
+
+        this.add(this.btnMoveUser);
+    }
+
+    public void moveUser() {
+        int newPosition = user1.getPosOnBoard() + movementDice.getValue();
+        System.out.println("Dado: " +  movementDice.getValue());
+        btnMoveUser.setText("Throw Dice: " + movementDice.getValue());
+
+        if (newPosition <= 100) {
+            if (grid[newPosition - 1].hasAngel) {
+                newPosition = newPosition + 11;
+            }
+
+            if (grid[newPosition - 1].hasDevil) {
+                newPosition = newPosition - 10;
+            }
+
+            user1.setPosOnBoard(newPosition);
+            user1.setPosX(grid[newPosition - 1].posX);
+            user1.setPosY(grid[newPosition - 1].posY);
+
+            repaint();
+        }
     }
 
     public void paint(Graphics g) {
@@ -77,15 +120,6 @@ public class Board extends JFrame implements ActionListener {
         int paddingBox = 10;
         int spacingBetweenBox = 10;
         int numberBox = 100;
-        BufferedImage imgDevil = null;
-        BufferedImage imgAngel = null;
-
-        try {
-            imgDevil = ImageIO.read(new File("devil.png"));
-            imgAngel = ImageIO.read(new File("angel.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         for (int i = 1; i <= 10; i++) {
             cordX = paddingFormX + boxHeight;
@@ -101,17 +135,15 @@ public class Board extends JFrame implements ActionListener {
                 g.drawString(String.valueOf(numberBox), cordX + paddingBox, cordY + paddingBox);
 
                 if (numberBox % 8 == 0) {
-                    g.drawImage(imgDevil,
+                    g.drawImage(this.imgDevil,
                             cordX + paddingBox,
                             cordY + paddingBox,
                             boxWidth - paddingBox - 10,
                             boxHeight - paddingBox - 10,
                             null);
                     currentCell.hasDevil = true;
-                }
-
-                if (numberBox % 7 == 0) {
-                    g.drawImage(imgAngel,
+                } else if (numberBox % 7 == 0) {
+                    g.drawImage(this.imgAngel,
                             cordX + paddingBox,
                             cordY + paddingBox,
                             boxWidth - paddingBox - 10,
@@ -141,10 +173,5 @@ public class Board extends JFrame implements ActionListener {
                     boxWidth - paddingBox - 10,
                     boxHeight - paddingBox - 10,
                     null);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
     }
 }

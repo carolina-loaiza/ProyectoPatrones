@@ -16,10 +16,14 @@ import java.lang.Math;
 import javax.swing.Timer;
 
 public class Board extends JFrame {
-    private int width;      //with of the main frame
-    private int height;     //height of the main frame
+    private int windowWidth;      //with of the main frame
+    private int windowHeight;     //height of the main frame
+    private int boardWidth;      //with of the board
+    private int boardHeight;     //height of the board
+    private int horizontalPadding = 10;     //Horizontal padding added to the frame
+    private int verticalPadding = 10;   //Vertical padding added to the frame
     private Cell[] grid;    //Grid that represents the values of the actual grid on the frame
-    private boolean isInitGrid;     //Flag that indicates if is the first time the frame is painted
+    private boolean isInitPaint;     //Flag that indicates if is the first time the frame is painted
     private User user1;
     private Dice movementDice;
     private BufferedImage imgDevil;
@@ -32,10 +36,12 @@ public class Board extends JFrame {
         super();
 
         this.setLayout(null);
-        this.isInitGrid = true;
-        this.width = width - 400;
-        this.height = height;
-        setSize(width, height);
+        this.isInitPaint = true;
+        this.windowWidth = width;
+        this.windowHeight = height;
+        this.boardWidth = (int) (this.windowWidth * 0.80);
+        this.boardHeight = this.windowHeight - Math.round(this.verticalPadding * 2);
+        setWindowSize(this.windowWidth, this.windowHeight);
         setVisible(true);
 
         this.grid = new Cell[100];
@@ -70,15 +76,22 @@ public class Board extends JFrame {
         }
 
         //Capture frame resize event
-        /*this.addComponentListener(new ComponentAdapter() {
+        this.addComponentListener(new ComponentAdapter() {
             public void componentResized(ComponentEvent e) {
-            //e.getComponent().getSize().height
+                boardWidth = (int) Math.round(e.getComponent().getSize().width * 0.60);
+                boardHeight = e.getComponent().getSize().height - Math.round(verticalPadding * 2);
+                btnMoveUser.setBounds(boardWidth, verticalPadding, 100, 50);
+                user1.setPosX(grid[user1.getPosOnBoard()-1].posX);
+                user1.setPosY(grid[user1.getPosOnBoard()-1].posY);
+
+                setWindowSize(e.getComponent().getSize().width, e.getComponent().getSize().height);
+                repaint();
             }
-        });*/
+        });
 
         //Add button foe to move icon on the cells
         this.btnMoveUser = new JButton("Throw Dice");
-        this.btnMoveUser.setBounds(600,10, 100, 50);
+        this.btnMoveUser.setBounds(this.boardWidth + this.horizontalPadding,this.verticalPadding, 100, 50);
         this.btnMoveUser.setMaximumSize(new Dimension(100, 50));
         this.btnMoveUser.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -89,6 +102,13 @@ public class Board extends JFrame {
 
         this.add(this.btnMoveUser);
         repaint();
+    }
+
+    public void setWindowSize(int width, int height) {
+        this.windowWidth = width;
+        this.windowHeight = height;
+
+        setSize(width, height);
     }
 
     public void moveUser() {
@@ -118,18 +138,17 @@ public class Board extends JFrame {
     public void paint(Graphics g) {
         super.paint(g);
 
-        int boxWidth = Math.round((this.width - 200) / 10);
-        int boxHeight = Math.round((this.height - 200) / 10);
-        int paddingFormX = 10;
-        int paddingFormY = 10;
-        int cordX = paddingFormX + boxHeight;
-        int cordY = paddingFormY + boxWidth;
-        int paddingBox = 10;
-        int spacingBetweenBox = 10;
+        int cellWith = Math.round((this.boardWidth) / 10) - (this.horizontalPadding * 2);
+        int cellHeight = Math.round((this.boardHeight) / 10) - (this.verticalPadding * 2);
+
+        int cordX = 0;
+        int cordY = this.verticalPadding + cellHeight;
+        int paddingCell = 10;
+        int spacingBetweenCells = 10;
         int numberBox = 100;
 
         for (int i = 1; i <= 10; i++) {
-            cordX = paddingFormX + boxHeight;
+            cordX = this.horizontalPadding + cellHeight;
 
             for (int j = 1; j <= 10; j++) {
                 Cell currentCell = new Cell();
@@ -137,48 +156,48 @@ public class Board extends JFrame {
                 currentCell.posY = cordY;
 
                 g.setColor(Color.GRAY);
-                g.fillRect(cordX, cordY, boxWidth, boxHeight);
+                g.fillRect(cordX, cordY, cellWith, cellHeight);
                 g.setColor(Color.WHITE);
-                g.drawString(String.valueOf(numberBox), cordX + paddingBox, cordY + paddingBox);
+                g.drawString(String.valueOf(numberBox), cordX, cordY + paddingCell);
 
                 if (numberBox % 8 == 0) {
                     g.drawImage(this.imgDevil,
-                            cordX + paddingBox,
-                            cordY + paddingBox,
-                            boxWidth - paddingBox - 10,
-                            boxHeight - paddingBox - 10,
+                            cordX + paddingCell,
+                            cordY + paddingCell,
+                            cellWith - paddingCell - 10,
+                            cellHeight - paddingCell - 10,
                             null);
                     currentCell.hasDevil = true;
                 } else if (numberBox % 7 == 0) {
                     g.drawImage(this.imgAngel,
-                            cordX + paddingBox,
-                            cordY + paddingBox,
-                            boxWidth - paddingBox - 10,
-                            boxHeight - paddingBox - 10,
+                            cordX + paddingCell,
+                            cordY + paddingCell,
+                            cellWith - paddingCell - 10,
+                            cellHeight - paddingCell - 10,
                             null);
                     currentCell.hasAngel = true;
                 }
 
                 this.grid[numberBox - 1] = currentCell;
-                cordX = cordX + boxWidth + spacingBetweenBox;
+                cordX = cordX + cellWith + spacingBetweenCells;
                 numberBox--;
             }
 
-            cordY = cordY + boxHeight + spacingBetweenBox;
+            cordY = cordY + cellHeight + spacingBetweenCells;
         }
 
-        if (this.isInitGrid) {
+        if (this.isInitPaint) {
             this.user1.setPosX(this.grid[0].posX);
             this.user1.setPosY(this.grid[0].posY);
 
-            this.isInitGrid = false;
+            this.isInitPaint = false;
         }
 
         g.drawImage(this.user1.getImage(),
                     this.user1.getPosX(),
                     this.user1.getPosY(),
-                    boxWidth - paddingBox - 10,
-                    boxHeight - paddingBox - 10,
+                    cellWith - paddingCell - 10,
+                    cellHeight - paddingCell - 10,
                     null);
     }
 }

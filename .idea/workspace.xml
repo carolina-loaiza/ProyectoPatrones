@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="57355a72-3024-4f3b-9cea-eab8a16c6b0f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/graphics/Board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/graphics/Board/Board.java" afterDir="false" />
@@ -85,25 +84,29 @@
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
     <state x="1686" y="199" key="FileChooserDialogImpl/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584487372402" />
-    <state width="1037" height="503" key="GridCell.Tab.0.bottom" timestamp="1584581501056">
+    <state width="1037" height="278" key="GridCell.Tab.0.bottom" timestamp="1584660532763">
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
-    <state width="1037" height="503" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584581501056" />
+    <state width="1323" height="159" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-495.1080.1880@0.0.1366.728" timestamp="1584585800705" />
+    <state width="1037" height="278" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584660532763" />
     <state width="1323" height="25" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583002813131" />
-    <state width="1037" height="503" key="GridCell.Tab.0.center" timestamp="1584581501056">
+    <state width="1037" height="278" key="GridCell.Tab.0.center" timestamp="1584660532763">
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
-    <state width="1037" height="503" key="GridCell.Tab.0.center/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584581501056" />
+    <state width="1323" height="159" key="GridCell.Tab.0.center/0.0.1366.728/1366.-495.1080.1880@0.0.1366.728" timestamp="1584585800705" />
+    <state width="1037" height="278" key="GridCell.Tab.0.center/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584660532763" />
     <state width="1323" height="25" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583002813131" />
-    <state width="1037" height="503" key="GridCell.Tab.0.left" timestamp="1584581501056">
+    <state width="1037" height="278" key="GridCell.Tab.0.left" timestamp="1584660532763">
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
-    <state width="1037" height="503" key="GridCell.Tab.0.left/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584581501056" />
+    <state width="1323" height="159" key="GridCell.Tab.0.left/0.0.1366.728/1366.-495.1080.1880@0.0.1366.728" timestamp="1584585800704" />
+    <state width="1037" height="278" key="GridCell.Tab.0.left/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584660532763" />
     <state width="1323" height="25" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583002813131" />
-    <state width="1037" height="503" key="GridCell.Tab.0.right" timestamp="1584581501056">
+    <state width="1037" height="278" key="GridCell.Tab.0.right" timestamp="1584660532763">
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
-    <state width="1037" height="503" key="GridCell.Tab.0.right/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584581501056" />
+    <state width="1323" height="159" key="GridCell.Tab.0.right/0.0.1366.728/1366.-495.1080.1880@0.0.1366.728" timestamp="1584585800705" />
+    <state width="1037" height="278" key="GridCell.Tab.0.right/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584660532763" />
     <state width="1323" height="25" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583002813131" />
     <state width="1037" height="684" key="GridCell.Tab.1.bottom" timestamp="1584341177299">
       <screen x="1366" y="-495" width="1080" height="1880" />
@@ -133,5 +136,8 @@
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
     <state x="1569" y="-60" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584338144360" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ProyectoPatrones$Main.ic" NAME="Main Coverage Results" MODIFIED="1584652934725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -35,9 +35,16 @@ public class Board extends JFrame {
         this.isInitGrid = true;
         this.width = width - 400;
         this.height = height;
+        setSize(width, height);
+        setVisible(true);
+
         this.grid = new Cell[100];
+
+        //Init User Settings
         this.user1 = new User("Player 1","icon.png");
         this.user1.setPosOnBoard(1);
+
+        //Init Dice Settings
         this.movementDice = new Dice();
         this.diceTimer = new Timer(30, new ActionListener() {
             @Override
@@ -54,9 +61,6 @@ public class Board extends JFrame {
                 }
             }
         });
-
-        setSize(width, height);
-        setVisible(true);
 
         try {
             this.imgDevil = ImageIO.read(new File("devil.png"));
@@ -84,19 +88,22 @@ public class Board extends JFrame {
         });
 
         this.add(this.btnMoveUser);
+        repaint();
     }
 
     public void moveUser() {
         int newPosition = user1.getPosOnBoard() + movementDice.getValue();
-        System.out.println("Dado: " +  movementDice.getValue());
+        System.out.println("Dice: " +  movementDice.getValue());
         btnMoveUser.setText("Throw Dice: " + movementDice.getValue());
 
         if (newPosition <= 100) {
             if (grid[newPosition - 1].hasAngel) {
+                System.out.println("Congratulations! You have reached an Angel cell, you have advanced 11 cells forward!");
                 newPosition = newPosition + 11;
             }
 
             if (grid[newPosition - 1].hasDevil) {
+                System.out.println("That\'s Bad! You have reached an Evil cell, you have moved 10 cells back!");
                 newPosition = newPosition - 10;
             }
 

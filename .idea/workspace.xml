@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57355a72-3024-4f3b-9cea-eab8a16c6b0f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/graphics/Board/Cell/Angel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/graphics/Board/Cell/CellType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/graphics/Board/Cell/Devil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/graphics/Board/Cell/Empty.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/graphics/Board/Cell/Stone.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angel.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/graphics/Board/images/angel.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devil.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/graphics/Board/images/devil.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/graphics/Board/images/icon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Board/Cell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Graphics/com/graphics/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/graphics/Board/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/graphics/Board/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/graphics/Board/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/graphics/Board/Cell/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/graphics/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/graphics/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -32,10 +47,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/04 - Patron_Prototipo_Camisetaas" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Cenfotec\Programacion con Patrones\Proyecto Final\ProyectoPatrones\src\com\graphics\images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -67,11 +88,14 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="1711" y="154" key="#com.intellij.ide.util.MemberChooser" timestamp="1584420260804">
+    <state x="1711" y="154" key="#com.intellij.ide.util.MemberChooser" timestamp="1584751050555">
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
-    <state x="1711" y="154" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584420260804" />
+    <state x="1711" y="154" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584751050555" />
     <state x="1366" y="-174" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584336985668">
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
@@ -80,50 +104,58 @@
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
     <state x="1636" y="191" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584337777179" />
-    <state x="1686" y="199" key="FileChooserDialogImpl" timestamp="1584487372402">
+    <state x="1686" y="199" key="FileChooserDialogImpl" timestamp="1584995038133">
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
-    <state x="1686" y="199" key="FileChooserDialogImpl/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584487372402" />
-    <state width="1037" height="278" key="GridCell.Tab.0.bottom" timestamp="1584660532763">
-      <screen x="1366" y="-495" width="1080" height="1880" />
+    <state x="1686" y="199" key="FileChooserDialogImpl/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584995038133" />
+    <state width="1037" height="327" key="GridCell.Tab.0.bottom" timestamp="1586233801470">
+      <screen x="1366" y="-510" width="1080" height="1880" />
     </state>
     <state width="1323" height="159" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-495.1080.1880@0.0.1366.728" timestamp="1584585800705" />
-    <state width="1037" height="278" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584660532763" />
+    <state width="1037" height="442" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1585015490641" />
+    <state width="1037" height="327" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.-510.1080.1880@1366.-510.1080.1880" timestamp="1586233801470" />
     <state width="1323" height="25" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583002813131" />
-    <state width="1037" height="278" key="GridCell.Tab.0.center" timestamp="1584660532763">
-      <screen x="1366" y="-495" width="1080" height="1880" />
+    <state width="1037" height="327" key="GridCell.Tab.0.center" timestamp="1586233801469">
+      <screen x="1366" y="-510" width="1080" height="1880" />
     </state>
     <state width="1323" height="159" key="GridCell.Tab.0.center/0.0.1366.728/1366.-495.1080.1880@0.0.1366.728" timestamp="1584585800705" />
-    <state width="1037" height="278" key="GridCell.Tab.0.center/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584660532763" />
+    <state width="1037" height="442" key="GridCell.Tab.0.center/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1585015490641" />
+    <state width="1037" height="327" key="GridCell.Tab.0.center/0.0.1366.728/1366.-510.1080.1880@1366.-510.1080.1880" timestamp="1586233801469" />
     <state width="1323" height="25" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583002813131" />
-    <state width="1037" height="278" key="GridCell.Tab.0.left" timestamp="1584660532763">
-      <screen x="1366" y="-495" width="1080" height="1880" />
+    <state width="1037" height="327" key="GridCell.Tab.0.left" timestamp="1586233801469">
+      <screen x="1366" y="-510" width="1080" height="1880" />
     </state>
     <state width="1323" height="159" key="GridCell.Tab.0.left/0.0.1366.728/1366.-495.1080.1880@0.0.1366.728" timestamp="1584585800704" />
-    <state width="1037" height="278" key="GridCell.Tab.0.left/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584660532763" />
+    <state width="1037" height="442" key="GridCell.Tab.0.left/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1585015490641" />
+    <state width="1037" height="327" key="GridCell.Tab.0.left/0.0.1366.728/1366.-510.1080.1880@1366.-510.1080.1880" timestamp="1586233801469" />
     <state width="1323" height="25" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583002813131" />
-    <state width="1037" height="278" key="GridCell.Tab.0.right" timestamp="1584660532763">
-      <screen x="1366" y="-495" width="1080" height="1880" />
+    <state width="1037" height="327" key="GridCell.Tab.0.right" timestamp="1586233801470">
+      <screen x="1366" y="-510" width="1080" height="1880" />
     </state>
     <state width="1323" height="159" key="GridCell.Tab.0.right/0.0.1366.728/1366.-495.1080.1880@0.0.1366.728" timestamp="1584585800705" />
-    <state width="1037" height="278" key="GridCell.Tab.0.right/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584660532763" />
+    <state width="1037" height="442" key="GridCell.Tab.0.right/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1585015490641" />
+    <state width="1037" height="327" key="GridCell.Tab.0.right/0.0.1366.728/1366.-510.1080.1880@1366.-510.1080.1880" timestamp="1586233801470" />
     <state width="1323" height="25" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583002813131" />
-    <state width="1037" height="684" key="GridCell.Tab.1.bottom" timestamp="1584341177299">
-      <screen x="1366" y="-495" width="1080" height="1880" />
+    <state width="1037" height="442" key="GridCell.Tab.1.bottom" timestamp="1586232590698">
+      <screen x="1366" y="-510" width="1080" height="1880" />
     </state>
-    <state width="1037" height="684" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584341177299" />
-    <state width="1037" height="684" key="GridCell.Tab.1.center" timestamp="1584341177299">
-      <screen x="1366" y="-495" width="1080" height="1880" />
+    <state width="1037" height="442" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1585015490641" />
+    <state width="1037" height="442" key="GridCell.Tab.1.bottom/0.0.1366.728/1366.-510.1080.1880@1366.-510.1080.1880" timestamp="1586232590698" />
+    <state width="1037" height="442" key="GridCell.Tab.1.center" timestamp="1586232590698">
+      <screen x="1366" y="-510" width="1080" height="1880" />
     </state>
-    <state width="1037" height="684" key="GridCell.Tab.1.center/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584341177299" />
-    <state width="1037" height="684" key="GridCell.Tab.1.left" timestamp="1584341177299">
-      <screen x="1366" y="-495" width="1080" height="1880" />
+    <state width="1037" height="442" key="GridCell.Tab.1.center/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1585015490641" />
+    <state width="1037" height="442" key="GridCell.Tab.1.center/0.0.1366.728/1366.-510.1080.1880@1366.-510.1080.1880" timestamp="1586232590698" />
+    <state width="1037" height="442" key="GridCell.Tab.1.left" timestamp="1586232590698">
+      <screen x="1366" y="-510" width="1080" height="1880" />
     </state>
-    <state width="1037" height="684" key="GridCell.Tab.1.left/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584341177299" />
-    <state width="1037" height="684" key="GridCell.Tab.1.right" timestamp="1584341177299">
-      <screen x="1366" y="-495" width="1080" height="1880" />
+    <state width="1037" height="442" key="GridCell.Tab.1.left/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1585015490641" />
+    <state width="1037" height="442" key="GridCell.Tab.1.left/0.0.1366.728/1366.-510.1080.1880@1366.-510.1080.1880" timestamp="1586232590698" />
+    <state width="1037" height="442" key="GridCell.Tab.1.right" timestamp="1586232590698">
+      <screen x="1366" y="-510" width="1080" height="1880" />
     </state>
-    <state width="1037" height="684" key="GridCell.Tab.1.right/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1584341177299" />
+    <state width="1037" height="442" key="GridCell.Tab.1.right/0.0.1366.728/1366.-495.1080.1880@1366.-495.1080.1880" timestamp="1585015490641" />
+    <state width="1037" height="442" key="GridCell.Tab.1.right/0.0.1366.728/1366.-510.1080.1880@1366.-510.1080.1880" timestamp="1586232590698" />
     <state x="1366" y="65" key="new project wizard" timestamp="1583194457091">
       <screen x="1366" y="-495" width="1080" height="1880" />
     </state>
